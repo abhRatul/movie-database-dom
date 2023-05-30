@@ -5,8 +5,16 @@ const addMovieModal = document.querySelector('#add-modal');
 const startAddMovieButton = document.querySelector('header button');
 // const startAddMovieButton = document.querySelector('header').lastElementChild;
 
-const toggleMovieModal = () { // function(){}
+const backdropElement = document.querySelector('#backdrop')
+
+
+const toggleBackdrop = ()=>{
+    backdropElement.classList.toggle('visible')
+}
+
+const toggleMovieModal = ()=> { // function(){}
     addMovieModal.classList.toggle('visible');
+    toggleBackdrop()
 }
 
 startAddMovieButton.addEventListener('click', toggleMovieModal)
