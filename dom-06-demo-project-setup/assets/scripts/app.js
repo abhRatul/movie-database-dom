@@ -13,6 +13,24 @@ console.log(conformAddMovieButton);
 console.log(userInputs);
 
 
+const renderNewMovieElement = ( title, imageUrl, rating ) => {
+    let newMovieElement = document.createElement('li');
+    newMovieElement.className = 'movie-element';
+    newMovieElement.innerHTML = `
+        <div class="movie-element__image">
+            <img src="${imageUrl}" alt="${title}">
+        </div>
+        <div class="movie-element__info">
+            <h2>${title}</h2>
+            <p>${rating}/5 Stars</p>
+        </div>
+    `;
+
+    const listRoot = document.getElementById('movie-list')
+    listRoot.append(newMovieElement);
+}
+
+
 const updateUi = () => {
     if (movies.length < 1){
         entryTextSection.style.display = 'block';
@@ -71,6 +89,7 @@ const addMovieHandler = () => {
      updateUi();
      toggleMovieModal();
      clearMovieInputs();
+     renderNewMovieElement(newMovie.title, newMovie.image, newMovie.rating);
      console.log(movies);
 }
 
