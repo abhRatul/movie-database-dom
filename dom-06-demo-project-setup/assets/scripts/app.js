@@ -7,10 +7,19 @@ const backdropElement = document.querySelector('#backdrop')
 const cancleAddMovieButton = addMovieModal.querySelector('.btn--passive');
 const conformAddMovieButton = cancleAddMovieButton.nextElementSibling;
 const userInputs = document.querySelectorAll('input');
+const entryTextSection =document.getElementById('entry-text')
 const movies = [];
 console.log(conformAddMovieButton);
 console.log(userInputs);
 
+
+const updateUi = () => {
+    if (movies.length < 1){
+        entryTextSection.style.display = 'block';
+    } else {
+        entryTextSection.style.display = 'none'
+    }
+}
 
 const toggleBackdrop = ()=>{
     backdropElement.classList.toggle('visible');
@@ -59,6 +68,7 @@ const addMovieHandler = () => {
      }
 
      movies.push(newMovie);
+     updateUi();
      toggleMovieModal();
      clearMovieInputs();
      console.log(movies);
